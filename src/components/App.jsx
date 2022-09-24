@@ -21,6 +21,7 @@ export const App = () => {
       <nav>
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/movies">Movies</StyledLink>
+        {/* <StyledLink to="/movies/:movieId">MovieDetails</StyledLink> */}
       </nav>
 
       <Routes>
