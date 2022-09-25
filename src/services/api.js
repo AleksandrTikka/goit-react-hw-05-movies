@@ -35,6 +35,6 @@ export const fetchMovieDetails = async movieId => {
     const response = await Axios.get(`movie/${movieId}?${API_KEY}`);
     return response.data;
   } catch (error) {
-    concole.log(error);
+    console.log(error);
   }
 };
