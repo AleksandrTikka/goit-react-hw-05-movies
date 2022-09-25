@@ -18,7 +18,7 @@ export const fetchTrending = async () => {
 
 export const fetchSearchMovies = async query => {
   const params = new URLSearchParams({
-    language: 'en-US',
+    api_key: API_KEY,
     query,
     page: 1,
   });
@@ -27,5 +27,14 @@ export const fetchSearchMovies = async query => {
     return response.data;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const fetchMovieDetails = async movieId => {
+  try {
+    const response = await Axios.get(`movie/${movieId}?${API_KEY}`);
+    return response.data;
+  } catch (error) {
+    concole.log(error);
   }
 };
