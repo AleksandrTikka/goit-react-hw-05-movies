@@ -15,6 +15,7 @@ const Home = () => {
 
   return (
     <div>
+      <h2>Trending today</h2>
       {movies.length > 0 && (
         <ul>
           {movies.map(movie => {
