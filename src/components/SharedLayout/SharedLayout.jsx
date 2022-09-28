@@ -8,12 +8,19 @@ const SharedLayout = () => {
     &.active {
       color: orange;
     }
+
+    :hover:not(.active),
+    :focus:not(.active) {
+      color: yellow;
+    }
   `;
   return (
     <div>
       <header>
         <nav>
-          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="/" end>
+            Home
+          </StyledLink>
           <StyledLink to="/movies">Movies</StyledLink>
           {/* <StyledLink to="/movies/:movieId">MovieDetails</StyledLink> */}
         </nav>

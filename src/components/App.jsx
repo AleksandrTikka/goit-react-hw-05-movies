@@ -7,10 +7,12 @@ import Cast from 'components/Cast';
 import Reviews from 'components/Reviews';
 import NotFound from 'pages/NotFound';
 import SharedLayout from './SharedLayout';
+import { GlobalStyle } from './GlobalStyle';
 
 export const App = () => {
   return (
     <div>
+      <GlobalStyle />
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
