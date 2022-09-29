@@ -18,10 +18,9 @@ export const fetchSearchMovies = async query => {
   const params = new URLSearchParams({
     api_key: API_KEY,
     query,
-    page: 1,
   });
   try {
-    const response = await Axios.get('search/movie', params);
+    const response = await Axios.get(`search/movie?${params}`);
     return response.data.results;
   } catch (error) {
     console.log(error);
@@ -30,7 +29,7 @@ export const fetchSearchMovies = async query => {
 
 export const fetchMovieDetails = async movieId => {
   try {
-    const response = await Axios.get(`movie/${movieId}?${API_KEY}`);
+    const response = await Axios.get(`movie/${movieId}?api_key=${API_KEY}`);
     return response.data;
   } catch (error) {
     console.log(error);

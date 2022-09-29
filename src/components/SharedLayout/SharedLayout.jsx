@@ -11,7 +11,7 @@ const SharedLayout = () => {
 
     :hover:not(.active),
     :focus:not(.active) {
-      color: yellow;
+      color: red;
     }
   `;
   return (
