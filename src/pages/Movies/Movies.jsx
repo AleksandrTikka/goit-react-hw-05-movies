@@ -3,7 +3,7 @@ import Searchbar from 'components/Searchbar';
 import MoviesList from 'components/MoviesList';
 import { fetchSearchMovies } from 'services/api';
 import Loader from 'components/Loader';
-// import { NavLink, Outlet } from 'react-router-dom';
+// import { NavLink} from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -42,7 +42,6 @@ const Movies = () => {
         //       return (
         //         <li key={movie.id}>
         //           <NavLink to={`/movies/${movie.id}`}>{movie.title}</NavLink>
-        //           <Outlet />
         //         </li>
         //       );
         //     })}
