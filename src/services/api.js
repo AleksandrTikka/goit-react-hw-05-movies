@@ -38,7 +38,9 @@ export const fetchMovieDetails = async movieId => {
 
 export const fetchMovieCast = async movieId => {
   try {
-    const response = await Axios.get(`movie/${movieId}/credits?${API_KEY}`);
+    const response = await Axios.get(
+      `movie/${movieId}/credits?api_key=${API_KEY}`
+    );
     return response.data.cast;
   } catch (error) {
     console.log(error);
@@ -47,7 +49,7 @@ export const fetchMovieCast = async movieId => {
 
 export const fetchMovieReview = async movieId => {
   try {
-    const response = Axios.get(`movie/${movieId}/review?${API_KEY}`);
+    const response = Axios.get(`movie/${movieId}/review?api_key=${API_KEY}`);
     return response.data.results;
   } catch (error) {
     console.log(error);
