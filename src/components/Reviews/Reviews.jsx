@@ -1,4 +1,4 @@
 const Reviews = () => {
-  return <div></div>;
+  return <div>review</div>;
 };
 export default Reviews;
