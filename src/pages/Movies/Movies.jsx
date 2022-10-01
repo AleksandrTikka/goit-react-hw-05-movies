@@ -10,6 +10,29 @@ const Movies = () => {
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('idle');
   const [searchParams, setSearchParams] = useSearchParams();
+  const movieName = searchParams.get('query') ?? '';
+  const newQuery = query => {
+    const newParams = query !== '' ? { query } : {};
+    setSearchParams(newParams);
+  };
+
+  useEffect(() => {
+    if (movieName === '') {
+      return;
+    }
+    async function getMomies() {
+      try {
+        setStatus('pending');
+        const response = await fetchSearchMovies(movieName);
+        setMovies(response);
+        setStatus('resolved');
+      } catch (error) {
+        setStatus('rejected');
+        console.log(error);
+      }
+    }
+    getMomies();
+  }, [movieName]);
 
   useEffect(() => {
     if (query === '') {
@@ -30,27 +53,14 @@ const Movies = () => {
   }, [query]);
   const handleSearchQuery = input => {
     setQuery(input.trim());
+    newQuery(input.trim());
   };
 
   return (
     <div>
       <Searchbar getSearchQuery={handleSearchQuery} />
 
-      {movies.length > 0 && (
-        //       (
-        //   <ul>
-        //     {movies.map(movie => {
-        //       return (
-        //         <li key={movie.id}>
-        //           <NavLink to={`/movies/${movie.id}`}>{movie.title}</NavLink>
-        //         </li>
-        //       );
-        //     })}
-        //   </ul>
-        // )
-
-        <MoviesList movies={movies} />
-      )}
+      {movies.length > 0 && <MoviesList movies={movies} />}
       {status === 'pending' && <Loader />}
     </div>
   );
