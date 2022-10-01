@@ -26,7 +26,7 @@ export default function Searchbar({ getSearchQuery }) {
           autoFocus
           placeholder="Search movies"
         />
-        <button type="submit"></button>
+        <button type="submit">Search</button>
       </form>
     </div>
   );

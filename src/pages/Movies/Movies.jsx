@@ -3,12 +3,13 @@ import Searchbar from 'components/Searchbar';
 import MoviesList from 'components/MoviesList';
 import { fetchSearchMovies } from 'services/api';
 import Loader from 'components/Loader';
-// import { NavLink} from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState('');
   const [status, setStatus] = useState('idle');
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     if (query === '') {

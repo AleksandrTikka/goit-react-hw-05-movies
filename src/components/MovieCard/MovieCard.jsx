@@ -6,7 +6,7 @@ const MovieCard = ({ movie }) => {
       <img src={poster_path} alt={title} />
       <div>
         <h2>
-          {title} ({release_date.slice(0, 4)} )
+          {title} ({release_date.slice(0, 4)})
         </h2>
         <p>User Score:{vote_average}</p>
         <h3>Owerview</h3>
