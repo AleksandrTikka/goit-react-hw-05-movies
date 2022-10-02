@@ -1,17 +1,20 @@
+import { Suspense } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Loader from 'components/Loader';
 
 const SharedLayout = () => {
   const StyledLink = styled(NavLink)`
     color: black;
 
     &.active {
-      color: orange;
+      color: ${p => p.theme.colors.active};
     }
 
     :hover:not(.active),
     :focus:not(.active) {
-      color: red;
+      color: ${p => p.theme.colors.accent};
+      border-bottom: ${p => p.theme.borders.bold};
     }
   `;
   return (
@@ -25,7 +28,9 @@ const SharedLayout = () => {
           {/* <StyledLink to="/movies/:movieId">MovieDetails</StyledLink> */}
         </nav>
       </header>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

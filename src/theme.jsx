@@ -1,12 +1,13 @@
 export const theme = {
   colors: {
-    text: 'black',
-    accent: 'green',
-    heading: '#cd5700',
+    text: '#2f4f4f',
+    accent: 'violet',
+    active: 'orange',
+    heading: '#000000',
     bgApp: '#79F8F8',
     bgButton: '#50C878',
     bgButtonHover: '#7FFF00',
-    border: '#B0C4DE',
+    border: '#808080',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
   fonts: {

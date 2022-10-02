@@ -5,9 +5,13 @@ import {
   useLocation,
   //   useNavigate,
 } from 'react-router-dom';
+import { Suspense } from 'react';
 import { useState, useEffect } from 'react';
 import { fetchMovieDetails } from 'services/api';
 import MovieCard from 'components/MovieCard';
+import Loader from 'components/Loader';
+import { HiArrowSmLeft } from 'react-icons/hi';
+import { BackButton } from './MovieDetails.styled';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -37,7 +41,10 @@ const MovieDetails = () => {
       {/* <button type="button" onClick={handleSubmit}>
         Go back
       </button> */}
-      <NavLink to={backLinkHref}>Go back</NavLink>
+      <BackButton to={backLinkHref}>
+        <HiArrowSmLeft size="16px" />
+        Go back
+      </BackButton>
       <div>
         <MovieCard movie={movie} />
         <div>
@@ -51,7 +58,9 @@ const MovieDetails = () => {
             </li>
           </ul>
         </div>
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );
