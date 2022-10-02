@@ -1,11 +1,19 @@
-import { useParams, Link, Outlet, useNavigate } from 'react-router-dom';
+import {
+  useParams,
+  NavLink,
+  Outlet,
+  useLocation,
+  //   useNavigate,
+} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieDetails } from 'services/api';
 import MovieCard from 'components/MovieCard';
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  const navigate = useNavigate();
+  //   const navigate = useNavigate();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
   useEffect(() => {
     async function getMovieDetails() {
       try {
@@ -20,25 +28,26 @@ const MovieDetails = () => {
   if (!movie) {
     return null;
   }
-  const handleSubmit = () => {
-    navigate('/movies', { replace: true });
-  };
+  //   const handleSubmit = () => {
+  //     navigate({ backLinkHref }, { replace: true });
+  //   };
 
   return (
     <div>
-      <button type="button" onClick={handleSubmit}>
+      {/* <button type="button" onClick={handleSubmit}>
         Go back
-      </button>
+      </button> */}
+      <NavLink to={backLinkHref}>Go back</NavLink>
       <div>
         <MovieCard movie={movie} />
         <div>
           <p>Additional information</p>
           <ul>
             <li>
-              <Link to="cast">Cast</Link>
+              <NavLink to="cast">Cast</NavLink>
             </li>
             <li>
-              <Link to="reviews">Reviews</Link>
+              <NavLink to="reviews">Reviews</NavLink>
             </li>
           </ul>
         </div>
