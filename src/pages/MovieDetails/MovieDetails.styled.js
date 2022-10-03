@@ -10,6 +10,13 @@ export const BackButton = styled.button`
   text-decoration: none;
   color: ${p => p.theme.colors.text};
   margin: ${p => p.theme.space[1]}px;
+  margin-left: ${p => p.theme.space[4]}px;
+
+  :hover,
+  :focus {
+    color: ${p => p.theme.colors.accent};
+    border-color: ${p => p.theme.colors.accent};
+  }
 `;
 
 export const SecondaryInfo = styled.div`
@@ -26,6 +33,9 @@ export const Heading = styled.h3`
 export const InfoLink = styled(NavLink)`
 text-decoration: none;
   color: ${p => p.theme.colors.text};
-  :hover,
-  :focus {
+  &.active {
+      color: ${p => p.theme.colors.active};
+    }
+  :hover:not(.active),
+    :focus:not(.active) {
     color: ${p => p.theme.colors.accent};`;

@@ -5,6 +5,7 @@ import {
   useLocation,
   useNavigate,
 } from 'react-router-dom';
+import { Box } from 'components/Box';
 import { Suspense } from 'react';
 import { useState, useEffect } from 'react';
 import { fetchMovieDetails } from 'services/api';
@@ -44,7 +45,7 @@ const MovieDetails = () => {
   };
 
   return (
-    <div>
+    <Box as="div" pt="4">
       <BackButton type="button" onClick={handleSubmit}>
         <HiArrowSmLeft size="16px" />
         Go back
@@ -75,7 +76,7 @@ const MovieDetails = () => {
       )}
       {!movie ||
         (status === 'rejected' && <h2>Sorry, information not found.</h2>)}
-    </div>
+    </Box>
   );
 };
 export default MovieDetails;
