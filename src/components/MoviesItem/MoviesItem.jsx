@@ -7,7 +7,7 @@ const MoviesItem = ({ movie }) => {
   return (
     <>
       <li>
-        <NavLink to={`/movies/${id}`} state={{ data: location }}>
+        <NavLink to={`/movies/${id}`} state={{ from: location }}>
           <img
             src={poster_path ? DEF_PATH + poster_path : DEF_IMG}
             alt={title}

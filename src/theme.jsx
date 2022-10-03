@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
     text: '#2f4f4f',
-    accent: 'violet',
+    accent: 'red',
     active: 'orange',
     heading: '#000000',
     bgApp: '#79F8F8',

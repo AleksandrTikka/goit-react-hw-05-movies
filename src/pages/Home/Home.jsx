@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { fetchTrending } from 'services/api';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-
+  const location = useLocation();
   useEffect(() => {
     async function getTrending() {
       const response = await fetchTrending();
@@ -22,7 +22,9 @@ const Home = () => {
           {movies.map(movie => {
             return (
               <li key={movie.id}>
-                <NavLink to={`/movies/${movie.id}`}>{movie.title}</NavLink>
+                <NavLink to={`/movies/${movie.id}`} state={{ from: location }}>
+                  {movie.title}
+                </NavLink>
                 <Outlet />
               </li>
             );
