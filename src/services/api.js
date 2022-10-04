@@ -47,9 +47,11 @@ export const fetchMovieCast = async movieId => {
   }
 };
 
-export const fetchMovieReview = async movieId => {
+export const fetchMovieReviews = async movieId => {
   try {
-    const response = Axios.get(`movie/${movieId}/review?api_key=${API_KEY}`);
+    const response = await Axios.get(
+      `movie/${movieId}/reviews?api_key=${API_KEY}`
+    );
     return response.data.results;
   } catch (error) {
     console.log(error);

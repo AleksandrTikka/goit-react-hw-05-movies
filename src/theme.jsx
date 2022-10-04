@@ -5,8 +5,8 @@ export const theme = {
     active: 'orange',
     heading: '#000000',
     bgApp: '#79F8F8',
-    bgButton: '#50C878',
-    bgButtonHover: '#7FFF00',
+    bgButton: '#ffffff',
+    bgButtonHover: 'orange',
     border: '#808080',
   },
   space: [0, 2, 4, 8, 16, 32, 64, 128, 256],
@@ -29,6 +29,16 @@ export const theme = {
   lineHeights: {
     body: 1.5,
     heading: 1.125,
+  },
+  shadows: {
+    header: '0 5px 7px rgba(0, 0, 0, 0.4)',
+    cardHover:
+      '0 10px 20px rgba(0, 0, 0, 0.25), 0 7px 10px rgba(0, 0, 0, 0.15)',
+  },
+  transition: {
+    transform: 'transform 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+    boxShadow: 'box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+    bgColor: 'color 300ms cubic-bezier(0.4, 0, 0.2, 1)',
   },
   borders: {
     none: 'none',

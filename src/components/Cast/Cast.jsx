@@ -30,10 +30,19 @@ const Cast = () => {
           return (
             <ListItem key={id}>
               <div>
-                <Img
-                  src={profile_path ? DEF_PATH + profile_path : NO_PHOTO}
-                  alt={name}
-                />
+                <Box
+                  as="div"
+                  display="flex"
+                  justifyContent="center"
+                  height="300px"
+                  maxWidth="200px"
+                  overflow="hidden"
+                >
+                  <Img
+                    src={profile_path ? DEF_PATH + profile_path : NO_PHOTO}
+                    alt={name}
+                  />
+                </Box>
                 <Box as="p" textAlign="center">
                   {name}
                 </Box>
