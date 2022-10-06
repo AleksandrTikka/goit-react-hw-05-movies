@@ -1,5 +1,6 @@
 import { DEF_PATH, DEF_IMG } from 'defaultImages/defaultImages';
 import { Card, Img, MovieTitle, Heading, Text } from './MovieCard.styled';
+import PropTypes from 'prop-types';
 const MovieCard = ({ movie }) => {
   const { title, vote_average, poster_path, overview, genres, release_date } =
     movie;
@@ -18,5 +19,19 @@ const MovieCard = ({ movie }) => {
       </div>
     </Card>
   );
+};
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    vote_average: PropTypes.number.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      })
+    ),
+    release_date: PropTypes.string.isRequired,
+  }),
 };
 export default MovieCard;

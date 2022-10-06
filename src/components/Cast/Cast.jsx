@@ -3,8 +3,9 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from 'services/api';
-import { List, ListItem, Img } from './Cast.styled';
+import { List, ListItem, Wrapper, Img } from './Cast.styled';
 import { Box } from 'components/Box';
+import PropTypes from 'prop-types';
 const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
@@ -25,36 +26,43 @@ const Cast = () => {
 
   return (
     <Box p="4">
-      <List>
-        {cast.map(({ name, profile_path, id, character }) => {
-          return (
-            <ListItem key={id}>
-              <div>
-                <Box
-                  as="div"
-                  display="flex"
-                  justifyContent="center"
-                  height="300px"
-                  maxWidth="200px"
-                  overflow="hidden"
-                >
+      {cast.length !== 0 ? (
+        <List>
+          {cast.map(({ name, profile_path, id, character }) => {
+            return (
+              <ListItem key={id}>
+                <div>
                   <Img
                     src={profile_path ? DEF_PATH + profile_path : NO_PHOTO}
                     alt={name}
                   />
-                </Box>
-                <Box as="p" textAlign="center">
-                  {name}
-                </Box>
-                <Box as="p" textAlign="center">
-                  Character: {character}
-                </Box>
-              </div>
-            </ListItem>
-          );
-        })}
-      </List>
+                  <Wrapper>
+                    <Box as="p" textAlign="center">
+                      {name}
+                    </Box>
+                    <Box as="p" textAlign="center">
+                      Character: {character}
+                    </Box>
+                  </Wrapper>
+                </div>
+              </ListItem>
+            );
+          })}
+        </List>
+      ) : (
+        <p>We don't have any information here</p>
+      )}
     </Box>
   );
+};
+Cast.propTypes = {
+  cast: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      profile_path: PropTypes.string,
+      id: PropTypes.number.isRequired,
+      character: PropTypes.string.isRequired,
+    })
+  ),
 };
 export default Cast;

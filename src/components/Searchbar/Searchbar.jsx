@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { Form, Input, Button } from './Searchbar.styled';
-
+import PropTypes from 'prop-types';
 export default function Searchbar({ getSearchQuery }) {
   const [input, setInput] = useState('');
 
@@ -11,7 +12,7 @@ export default function Searchbar({ getSearchQuery }) {
   const handleSubmit = e => {
     e.preventDefault();
     input.trim() === ''
-      ? alert('Search input is empty... Please enter a new word')
+      ? toast.error('Search input is empty... Please enter a new word')
       : getSearchQuery(input);
     setInput('');
   };
@@ -32,4 +33,6 @@ export default function Searchbar({ getSearchQuery }) {
     </div>
   );
 }
-// export default Searchbar;
+Searchbar.propTypes = {
+  getSearchQuery: PropTypes.func.isRequired,
+};

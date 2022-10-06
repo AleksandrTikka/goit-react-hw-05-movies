@@ -9,7 +9,7 @@ export const BackButton = styled.button`
   padding: ${p => p.theme.space[1]}px;
   text-decoration: none;
   color: ${p => p.theme.colors.text};
-  margin: ${p => p.theme.space[1]}px;
+
   margin-left: ${p => p.theme.space[4]}px;
 
   :hover,

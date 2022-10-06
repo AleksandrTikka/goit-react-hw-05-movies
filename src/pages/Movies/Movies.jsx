@@ -4,6 +4,7 @@ import MoviesList from 'components/MoviesList';
 import { fetchSearchMovies } from 'services/api';
 import Loader from 'components/Loader';
 import { useSearchParams } from 'react-router-dom';
+import { Box } from 'components/Box';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -57,12 +58,12 @@ const Movies = () => {
   };
 
   return (
-    <div>
+    <Box mx="auto">
       <Searchbar getSearchQuery={handleSearchQuery} />
 
       {movies.length > 0 && <MoviesList movies={movies} />}
       {status === 'pending' && <Loader />}
-    </div>
+    </Box>
   );
 };
 export default Movies;

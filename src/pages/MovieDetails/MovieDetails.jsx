@@ -1,10 +1,4 @@
-import {
-  useParams,
-  //   NavLink,
-  Outlet,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom';
+import { useParams, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Box } from 'components/Box';
 import { Suspense } from 'react';
 import { useState, useEffect } from 'react';
