@@ -39,7 +39,7 @@ const Movies = () => {
     if (query === '') {
       return;
     }
-    async function getMomies() {
+    async function getMovies() {
       try {
         setStatus('pending');
         const response = await fetchSearchMovies(query);
@@ -50,7 +50,7 @@ const Movies = () => {
         console.log(error);
       }
     }
-    getMomies();
+    getMovies();
   }, [query]);
   const handleSearchQuery = input => {
     setQuery(input.trim());
