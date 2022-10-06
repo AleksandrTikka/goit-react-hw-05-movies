@@ -25,7 +25,7 @@ export default function Searchbar({ getSearchQuery }) {
           onChange={handleInputChange}
           type="text"
           autoComplete="off"
-          // autoFocus
+          autoFocus
           placeholder="Search movies"
         />
         <Button type="submit">Search</Button>
